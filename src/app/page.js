@@ -15,19 +15,19 @@ export default function Home() {
 
   return (
     <main
-      className={`flex max-h-screen mt-20 flex-col items-center justify-between lg:p-10 ${
+      className={`flex max-h-screen mt-20 flex-col items-center justify-between p-10 ${
         rendered ? "opacity-100 scale-100" : "opacity-0 scale-90" // Apply opacity and scale based on the rendered state
       } transition-all duration-500 ease-in-out`}
       style={{ backgroundColor: "white" }}
     >
       <Image src={Pic} alt="" width={200}/>
-      <h1 className="text-4xl font-bold text-gray-600 mt-5">
+      <h1 className="lg:text-4xl font-bold text-gray-600 mt-5">
         Hello, I&lsquo;m Jether B. Balabagno
       </h1>
-      <p className="text-lg text-gray-700 mt-10">
+      <p className="lg:text-lg text-gray-700 mt-10">
         `Enthusiastic and takes pleasure in creating innovative things.`
       </p>
-      <h2 className="text-2xl font-semibold text-gray-500 mt-10">
+      <h2 className="lg:text-2xl font-semibold text-gray-500 mt-10">
         Software Developer
       </h2>
 
