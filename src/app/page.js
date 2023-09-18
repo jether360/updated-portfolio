@@ -22,10 +22,10 @@ export default function Home() {
     >
       <Image src={Pic} alt="" width={200}/>
       <h1 className="text-4xl font-bold text-gray-600 mt-5">
-        I am, Jether B. Balabagno
+        Hello, I&lsquo;m Jether B. Balabagno
       </h1>
       <p className="text-lg text-gray-700 mt-10">
-        Passionate, and enjoys building cool stuff
+        `Enthusiastic and takes pleasure in creating innovative things.`
       </p>
       <h2 className="text-2xl font-semibold text-gray-500 mt-10">
         Software Developer
