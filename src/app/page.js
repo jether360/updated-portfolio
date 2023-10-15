@@ -14,14 +14,15 @@ export default function Home() {
   }, []);
 
   return (
+    <div  style={{ backgroundColor: "white" }}>
     <main
-      className={`flex max-h-screen mt-20 flex-col items-center justify-between p-10 ${
+      className={`flex max-h-screen flex-col items-center justify-between p-10 ${
         rendered ? "opacity-100 scale-100" : "opacity-0 scale-90" // Apply opacity and scale based on the rendered state
       } transition-all duration-500 ease-in-out`}
       style={{ backgroundColor: "white" }}
     >
       <Image src={Pic} alt="" width={200}/>
-      <h1 className="lg:text-4xl font-bold text-gray-600 mt-5">
+      <h1 className="lg:text-4xl font-bold text-gray-600">
         Hello, I&lsquo;m Jether B. Balabagno
       </h1>
       <p className="lg:text-lg text-gray-700 mt-10">
@@ -38,16 +39,17 @@ export default function Home() {
           rel="noopener noreferrer"
           className="mr-4"
         >
-          <FaLinkedin className="text-4xl mb-2 cursor-pointer border-2 border-gray-500 rounded-lg p-2 shadow-lg transition-transform hover:scale-110" />
+          <FaLinkedin className="text-4xl mb-2 cursor-pointer border-2 border-gray-500 rounded-lg p-2 shadow-lg transition-transform hover:scale-110" style={{color: 'black'}}/>
         </a>
         <a
           href="https://github.com/jether360"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaGithub className="text-4xl mb-2 cursor-pointer border-2 border-gray-500 rounded-lg p-2 shadow-lg transition-transform hover:scale-110" />
+          <FaGithub className="text-4xl mb-2 cursor-pointer border-2 border-gray-500 rounded-lg p-2 shadow-lg transition-transform hover:scale-110" style={{color: 'black'}}/>
         </a>
       </div>
     </main>
+    </div>
   );
 }

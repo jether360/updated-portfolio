@@ -15,10 +15,12 @@ const Projects = () => {
   }, []);
 
   return (
+    <div style={{ backgroundColor: "white" }}>
     <div
       className={`grid grid-cols-1 md:grid-cols-2 gap-4 lg:p-20 ${
         rendered ? "opacity-100 scale-100" : "opacity-0 scale-90"
       } transition-all duration-500 ease-in-out`}
+      style={{ backgroundColor: "white" }}
     >
       {/* First Project */}
       <div className="max-w-xl mx-auto bg-white rounded-xl shadow-md overflow-hidden transform transition-transform hover:scale-105 animate-fade-in">
@@ -50,6 +52,7 @@ const Projects = () => {
           </div>
         </div>
       </div>
+      
 
       {/* Third Project */}
       <div className="max-w-xl mx-auto bg-white rounded-xl shadow-md overflow-hidden transform transition-transform hover:scale-105 animate-fade-in">
@@ -65,6 +68,7 @@ const Projects = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
