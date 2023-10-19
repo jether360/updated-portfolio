@@ -23,7 +23,7 @@ export default function Home() {
     >
       <Image src={Pic} alt="" width={200}/>
       <h1 className="lg:text-4xl font-bold text-gray-600">
-        Hi, I&lsquo;m Jether B. Balabagno
+        Hello, I&lsquo;m Jether B. Balabagno
       </h1>
       <p className="lg:text-lg text-gray-700 mt-10">
         `Enthusiastic and takes pleasure in creating innovative things.`
