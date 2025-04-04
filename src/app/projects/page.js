@@ -4,7 +4,7 @@ import Image from "next/image";
 import firstPic from "../../components/assets/123.PNG";
 import secondPic from "../../components/assets/1234.PNG";
 import thirdPic from "../../components/assets/12345.PNG";
-import fourthPic from "../../components/assets/123456.PNG";
+import fourthPic from "../../components/assets/123456.png";
 import { useEffect, useState } from "react"; // Import useEffect and useState
 
 const Projects = () => {
