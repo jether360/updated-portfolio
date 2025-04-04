@@ -7,7 +7,7 @@ import Pic from "../assets/logo-1.png";
 
 const Navigation = () => {
   const cvUrl =
-    "https://drive.google.com/file/d/1gVIEvAv7zNHN3JAn1DcYsC_JdOlGAgU_/view?usp=sharing";
+    "https://drive.google.com/file/d/104l0waHLQhoCGBichE2-hY-7mOOg9cBo/view?usp=sharing";
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
