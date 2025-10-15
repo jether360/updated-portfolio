@@ -1,78 +1,75 @@
 "use client";
 
-import {
-  FaJs,
-  FaReact,
-  FaMobile,
-  FaPython,
-} from "react-icons/fa";
-import { SiTypescript, SiCypress,SiNextdotjs } from "react-icons/si";
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import React from "react";
 
 const SkillsList = () => {
-  const [rendered, setRendered] = useState(false);
-
-  useEffect(() => {
-    setRendered(true);
-  }, []);
-
-  const developmentSkills = [
-    { icon: <FaJs className="mr-2 text-blue-500" />, name: "JavaScript", rating: 9 },
-    { icon: <SiTypescript className="mr-2 text-blue-500" />, name: "TypeScript", rating: 8 },
-    { icon: <FaReact className="mr-2 text-blue-500" />, name: "React Js", rating: 9 },
-    { icon: <SiNextdotjs className="mr-2 text-blue-500" />, name: "Next Js", rating: 7 },
-    { icon: <FaMobile className="mr-2 text-blue-500" />, name: "React Native", rating: 9 },
+  const skills = [
+    "React",
+    "TypeScript",
+    "Next.js",
+    "React Native",
+    "Node.js",
+    "Tailwind CSS",
+    "Prisma",
+    "Python",
   ];
 
-  const automationSkills = [
-    { icon: <FaPython className="mr-2 text-blue-500" />, name: "Selenium Python", rating: 6 },
-    { icon: <SiCypress className="mr-2 text-blue-500" />, name: "Cypress", rating: 7 },
-  ];
+  const githubUsername = "jether360";
 
   return (
-    <div style={{ backgroundColor: "#fff" }}>
-      <div
-        className={`flex min-h-screen flex-col items-center justify-start lg:p-10 ${
-          rendered ? "opacity-100 scale-100" : "opacity-0 scale-90"
-        } transition-all duration-500 ease-in-out`}
-      >
-        <h1 className="text-3xl font-extrabold text-gray-700 mb-6">My Skills</h1>
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="flex flex-col items-center justify-center min-h-screen py-16 px-6 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-800 text-gray-100"
+    >
+      {/* Title */}
+      <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+        My Tech Skills
+      </h1>
 
-        <div className="w-full max-w-4xl">
-          <h2 className="text-2xl font-semibold text-blue-600 mb-4 border-b-2 border-blue-400">Development Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-10">
-            {developmentSkills.map((skill, index) => (
-              <div
-                className="flex flex-col items-center bg-white shadow-lg rounded-lg p-4 transition-transform transform hover:scale-105"
-                key={index}
-              >
-                <div className="flex items-center mb-3">
-                  {skill.icon}
-                  <span className="text-gray-800 font-medium text-lg">{skill.name}</span>
-                </div>
-                <div className="text-yellow-500 font-bold">Rating: {skill.rating}/10</div>
-              </div>
-            ))}
-          </div>
+      {/* Skills Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-20">
+        {skills.map((skill) => (
+          <motion.div
+            whileHover={{ scale: 1.1, rotate: 1 }}
+            key={skill}
+            className="bg-gray-800/70 hover:bg-gray-700/70 text-white font-semibold py-3 px-6 rounded-2xl shadow-md border border-gray-700 transition-all duration-300 text-center"
+          >
+            {skill}
+          </motion.div>
+        ))}
+      </div>
 
-          <h2 className="text-2xl font-semibold text-green-600 mb-4 border-b-2 border-green-400">Automation Testing Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {automationSkills.map((skill, index) => (
-              <div
-                className="flex flex-col items-center bg-white shadow-lg rounded-lg p-4 transition-transform transform hover:scale-105"
-                key={index}
-              >
-                <div className="flex items-center mb-3">
-                  {skill.icon}
-                  <span className="text-gray-800 font-medium text-lg">{skill.name}</span>
-                </div>
-                <div className="text-yellow-500 font-bold">Rating: {skill.rating}/10</div>
-              </div>
-            ))}
-          </div>
+      {/* GitHub Contributions Section */}
+      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-100">
+        GitHub Contributions
+      </h2>
+
+      <div className="w-full max-w-5xl flex flex-col items-center justify-center gap-8">
+        {/* ✅ Reliable graph source */}
+        <img
+          src={`https://ghchart.rshah.org/2ea043/${githubUsername}`}
+          alt="GitHub Contributions Graph"
+          className="w-full max-w-4xl rounded-xl shadow-xl bg-[#0d1117] p-4 border border-gray-700"
+        />
+
+        {/* Stats cards (optional) */}
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-6">
+          <img
+            src={`https://github-readme-streak-stats.herokuapp.com?user=${githubUsername}&theme=transparent&hide_border=true&ring=7B61FF&fire=7B61FF&currStreakLabel=7B61FF`}
+            alt="GitHub Streak Stats"
+            className="w-[420px] shadow-lg rounded-lg"
+          />
+          <img
+            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUsername}&layout=compact&theme=dark&hide_border=true`}
+            alt="Top Languages"
+            className="w-[420px] shadow-xl rounded-lg"
+          />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
