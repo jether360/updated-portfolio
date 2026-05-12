@@ -49,54 +49,53 @@ const Projects = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-100 py-20 px-6 lg:px-20">
-      {/* Intro Section */}
+    <main className="min-h-screen bg-slate-50 px-6 py-20 lg:px-10">
       <div
-        className={`text-center mb-14 transition-all duration-700 ${
+        className={`mx-auto mb-14 max-w-7xl transition-all duration-700 ${
           rendered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
-        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">
-          My{" "}
-          <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-            Projects
-          </span>
+        <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-sky-700">
+          Selected Work
+        </p>
+        <h1 className="max-w-3xl text-4xl font-black tracking-tight text-slate-950 md:text-6xl">
+          Practical applications built for real workflows.
         </h1>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          A collection of the applications and systems I’ve built — combining
-          design, functionality, and clean architecture.
+        <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+          A collection of applications and systems I have worked on, combining
+          maintainable architecture, responsive interfaces, and business-focused
+          features.
         </p>
       </div>
 
-      {/* Projects Grid */}
       <div
-        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 transition-all duration-700 ease-in-out ${
+        className={`mx-auto grid max-w-7xl grid-cols-1 gap-8 transition-all duration-700 ease-in-out md:grid-cols-2 lg:grid-cols-3 ${
           rendered ? "opacity-100 scale-100" : "opacity-0 scale-95"
         }`}
       >
         {projects.map((project, index) => (
           <div
             key={index}
-            className="group relative bg-white/60 backdrop-blur-lg border border-white/30 shadow-xl rounded-2xl overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+            className="group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-lg shadow-slate-200/70 transition duration-500 hover:-translate-y-2 hover:shadow-2xl"
           >
-            {/* Image */}
-            <div className="relative w-full h-64 overflow-hidden">
+            <div className="relative h-64 w-full overflow-hidden bg-slate-200">
               <Image
                 src={project.image}
                 alt={project.title}
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-700"
               />
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
             </div>
 
-            {/* Content */}
-            <div className="absolute bottom-0 left-0 w-full text-white p-6 transition-all duration-500 group-hover:bg-black/50 backdrop-blur-sm">
-              <h2 className="text-xl font-semibold tracking-wide">
+            <div className="p-6">
+              <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                Project {String(index + 1).padStart(2, "0")}
+              </span>
+              <h2 className="mt-5 text-xl font-bold tracking-tight text-slate-950">
                 {project.title}
               </h2>
-              <p className="text-sm mt-2 text-gray-100 leading-relaxed">
+              <p className="mt-3 text-sm leading-6 text-slate-600">
                 {project.description}
               </p>
             </div>
@@ -104,12 +103,11 @@ const Projects = () => {
         ))}
       </div>
 
-      {/* Footer signature */}
-      <div className="text-center mt-20 text-gray-500 text-sm">
-        © {new Date().getFullYear()} Jether Balabagno — Built with 💙 using
-        Next.js & Tailwind CSS
+      <div className="mt-20 text-center text-sm text-slate-500">
+        © {new Date().getFullYear()} Jether Balabagno. Built with Next.js and
+        Tailwind CSS.
       </div>
-    </div>
+    </main>
   );
 };
 

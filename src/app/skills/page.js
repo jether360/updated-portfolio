@@ -18,58 +18,83 @@ const SkillsList = () => {
   const githubUsername = "jether360";
 
   return (
-    <motion.div
+    <motion.main
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="flex flex-col items-center justify-center min-h-screen py-16 px-6 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-800 text-gray-100"
+      className="min-h-screen bg-slate-950 px-6 py-20 text-slate-100 lg:px-10"
     >
-      {/* Title */}
-      <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-        My Tech Skills
-      </h1>
-
-      {/* Skills Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-20">
-        {skills.map((skill) => (
-          <motion.div
-            whileHover={{ scale: 1.1, rotate: 1 }}
-            key={skill}
-            className="bg-gray-800/70 hover:bg-gray-700/70 text-white font-semibold py-3 px-6 rounded-2xl shadow-md border border-gray-700 transition-all duration-300 text-center"
-          >
-            {skill}
-          </motion.div>
-        ))}
-      </div>
-
-      {/* GitHub Contributions Section */}
-      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-100">
-        GitHub Contributions
-      </h2>
-
-      <div className="w-full max-w-5xl flex flex-col items-center justify-center gap-8">
-        {/* ✅ Reliable graph source */}
-        <img
-          src={`https://ghchart.rshah.org/2ea043/${githubUsername}`}
-          alt="GitHub Contributions Graph"
-          className="w-full max-w-4xl rounded-xl shadow-xl bg-[#0d1117] p-4 border border-gray-700"
-        />
-
-        {/* Stats cards (optional) */}
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-6">
-          <img
-            src={`https://github-readme-streak-stats.herokuapp.com?user=${githubUsername}&theme=transparent&hide_border=true&ring=7B61FF&fire=7B61FF&currStreakLabel=7B61FF`}
-            alt="GitHub Streak Stats"
-            className="w-[420px] shadow-lg rounded-lg"
-          />
-          <img
-            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUsername}&layout=compact&theme=dark&hide_border=true`}
-            alt="Top Languages"
-            className="w-[420px] shadow-xl rounded-lg"
-          />
+      <section className="mx-auto max-w-7xl">
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+          <div>
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-sky-300">
+              Technical Capability
+            </p>
+            <h1 className="text-4xl font-black tracking-tight md:text-6xl">
+              Tools I use to ship dependable software.
+            </h1>
+          </div>
+          <p className="max-w-2xl text-lg leading-8 text-slate-300">
+            My work spans front-end interfaces, back-end APIs, database-backed
+            workflows, mobile development, and test automation.
+          </p>
         </div>
-      </div>
-    </motion.div>
+
+        <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+          {skills.map((skill) => (
+            <motion.div
+              whileHover={{ y: -6 }}
+              key={skill}
+              className="rounded-2xl border border-white/10 bg-white/[0.06] px-5 py-4 text-center font-semibold text-white shadow-lg shadow-black/20 transition hover:border-sky-300/60 hover:bg-white/[0.10]"
+            >
+              {skill}
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-20 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/30">
+          <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.3em] text-sky-300">
+                GitHub Activity
+              </p>
+              <h2 className="mt-3 text-3xl font-bold text-white">
+                Contribution snapshot
+              </h2>
+            </div>
+            <a
+              href={`https://github.com/${githubUsername}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-white/10 px-5 py-3 text-sm font-bold text-white transition hover:bg-white hover:text-slate-950"
+            >
+              View GitHub
+            </a>
+          </div>
+
+          <div className="flex w-full flex-col items-center justify-center gap-8">
+            <img
+              src={`https://ghchart.rshah.org/38bdf8/${githubUsername}`}
+              alt="GitHub Contributions Graph"
+              className="w-full rounded-2xl border border-white/10 bg-[#0d1117] p-4 shadow-xl"
+            />
+
+            <div className="flex flex-col items-center justify-center gap-6 lg:flex-row">
+              <img
+                src={`https://github-readme-streak-stats.herokuapp.com?user=${githubUsername}&theme=transparent&hide_border=true&ring=38BDF8&fire=38BDF8&currStreakLabel=38BDF8`}
+                alt="GitHub Streak Stats"
+                className="w-full max-w-[420px] rounded-xl shadow-lg"
+              />
+              <img
+                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUsername}&layout=compact&theme=dark&hide_border=true`}
+                alt="Top Languages"
+                className="w-full max-w-[420px] rounded-xl shadow-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </motion.main>
   );
 };
 

@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
 import Image from "next/image";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import Pic from '../components/assets/pic.PNG';
+import Pic from "../components/assets/pic.PNG";
 
 export default function Home() {
   const [rendered, setRendered] = useState(false);
@@ -12,76 +12,105 @@ export default function Home() {
     setRendered(true);
   }, []);
 
+  const highlights = [
+    "Full-stack web apps",
+    "API development",
+    "Automation testing",
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-100">
-      <main
-        className={`flex flex-col items-center justify-center text-center p-10 transition-all duration-700 ease-in-out transform ${
-          rendered ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
+    <main className="min-h-screen overflow-hidden bg-slate-50">
+      <section
+        className={`relative mx-auto grid min-h-[calc(100vh-73px)] max-w-7xl items-center gap-12 px-6 py-20 transition-all duration-700 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 ${
+          rendered ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         }`}
       >
-        {/* Card container */}
-        <div className="relative backdrop-blur-xl bg-white/40 border border-white/30 shadow-2xl rounded-3xl p-10 max-w-lg w-full hover:shadow-blue-200 transition-all duration-300">
-          {/* Profile Image */}
-          <div className="relative w-36 h-36 mx-auto mb-6">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-400 to-purple-400 blur-md opacity-50 animate-pulse" />
-            <Image
-              src={Pic}
-              alt="Profile Picture"
-              width={150}
-              height={150}
-              className="rounded-full shadow-lg border-4 border-white relative z-10"
-            />
-          </div>
+        <div className="absolute inset-x-0 top-0 -z-10 h-80 bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.20),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(14,165,233,0.16),_transparent_30%)]" />
 
-          {/* Name */}
-          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-800 tracking-tight">
-            Hello, I’m{" "}
-            <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-              Jether B. Balabagno
-            </span>
+        <div>
+          <p className="mb-5 inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 shadow-sm">
+            Software Developer based in Davao City, Philippines
+          </p>
+          <h1 className="max-w-4xl text-5xl font-black leading-tight tracking-tight text-slate-950 md:text-7xl">
+            Building reliable digital products with clean, practical execution.
           </h1>
-
-          {/* Tagline */}
-          <p className="text-gray-600 mt-4 text-base md:text-lg">
-            Passionate about crafting creative and efficient digital solutions.
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            I am Jether Balabagno, a software developer focused on Next.js,
+            React, TypeScript, Prisma, Python, and automation testing. I help
+            teams turn business workflows into polished, maintainable software.
           </p>
 
-          {/* Role */}
-          <h2 className="text-xl md:text-2xl font-semibold text-gray-700 mt-6">
-            Software Developer
-          </h2>
-
-          {/* Social Icons */}
-          <div className="flex justify-center mt-8 space-x-6">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="https://www.linkedin.com/in/jether-balabagno-421b42204/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group"
+              href="/projects"
+              className="rounded-full bg-slate-950 px-7 py-3 text-center text-sm font-bold text-white shadow-lg shadow-slate-300 transition hover:-translate-y-0.5 hover:bg-slate-800"
             >
-              <FaLinkedin className="text-4xl text-blue-600 border-2 border-transparent rounded-full p-2 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:border-blue-500 group-hover:shadow-blue-200" />
+              View Projects
             </a>
             <a
-              href="https://github.com/jether360"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group"
+              href="/cv"
+              className="rounded-full border border-slate-300 bg-white px-7 py-3 text-center text-sm font-bold text-slate-900 transition hover:-translate-y-0.5 hover:border-slate-950"
             >
-              <FaGithub className="text-4xl text-gray-800 border-2 border-transparent rounded-full p-2 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:border-gray-600 group-hover:shadow-gray-300" />
+              Open CV
             </a>
           </div>
 
-          {/* Animated Glow Underline */}
-          <div className="mt-8">
-            <div className="h-[2px] w-32 mx-auto bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full animate-pulse" />
+          <div className="mt-10 grid gap-3 sm:grid-cols-3">
+            {highlights.map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-slate-200 bg-white p-4 text-sm font-semibold text-slate-700 shadow-sm"
+              >
+                {item}
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Footer / signature */}
-        <p className="mt-10 text-gray-500 text-sm">
-          © {new Date().getFullYear()} Jether Balabagno — Crafted with 💙
-        </p>
-      </main>
-    </div>
+        <aside className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-200">
+          <div className="rounded-[1.5rem] bg-slate-950 p-6 text-white">
+            <div className="relative mx-auto h-48 w-48 overflow-hidden rounded-3xl border border-white/20 bg-slate-800 shadow-2xl">
+              <Image
+                src={Pic}
+                alt="Jether Balabagno"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="mt-8">
+              <p className="text-sm uppercase tracking-[0.3em] text-sky-300">
+                Available for roles
+              </p>
+              <h2 className="mt-3 text-3xl font-bold">Jether B. Balabagno</h2>
+              <p className="mt-3 text-slate-300">
+                Software Developer / Junior Tech Lead
+              </p>
+            </div>
+
+            <div className="mt-8 flex gap-4">
+              <a
+                href="https://www.linkedin.com/in/jether-balabagno-421b42204/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-white/10 bg-white/10 p-3 text-white transition hover:bg-white hover:text-slate-950"
+                aria-label="LinkedIn profile"
+              >
+                <FaLinkedin className="text-2xl" />
+              </a>
+              <a
+                href="https://github.com/jether360"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-white/10 bg-white/10 p-3 text-white transition hover:bg-white hover:text-slate-950"
+                aria-label="GitHub profile"
+              >
+                <FaGithub className="text-2xl" />
+              </a>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
   );
 }
